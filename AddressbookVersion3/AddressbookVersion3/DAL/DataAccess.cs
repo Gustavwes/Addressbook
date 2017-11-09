@@ -73,6 +73,7 @@ namespace AddressbookVersion3.DAL
                         result.City = updateValue;
                     }
                 }
+                dataContext.SaveChanges();
             }
         }
 
@@ -107,6 +108,11 @@ namespace AddressbookVersion3.DAL
                 dataContext.AddressContactLink.Add(newAddressContactLink);
                 dataContext.SaveChanges();
             }
+        }
+
+        public void DeleteContact(int addressId)
+        {
+            
         }
     }
 }
