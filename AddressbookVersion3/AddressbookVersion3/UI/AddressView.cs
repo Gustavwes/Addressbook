@@ -24,5 +24,7 @@ namespace AddressbookVersion3.UI
             var addresses = dataAccess.GetAddress();
             addressViewDataGrid.DataSource = addresses;
         }
+
+        
     }
 }

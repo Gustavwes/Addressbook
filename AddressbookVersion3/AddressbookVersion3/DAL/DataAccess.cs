@@ -53,6 +53,29 @@ namespace AddressbookVersion3.DAL
             return addresses;
         }
 
+        public void UpdateAddress(int addressId, string updateValue, string columnName)
+        {
+            using (var dataContext = new AdressbookDataContext())
+            {
+                var result = dataContext.Address.SingleOrDefault(x => x.Id == addressId);
+                if (result != null)
+                {
+                    if (columnName == "StreetAddress")
+                    {
+                        result.StreetAddress = updateValue;
+                    }
+                    if (columnName == "PostalCode")
+                    {
+                        result.PostalCode = updateValue;
+                    }
+                    if (columnName == "City")
+                    {
+                        result.City = updateValue;
+                    }
+                }
+            }
+        }
+
         
 
         public void CreateNewContact(Contact contact, AddressModel address, string contactType)
