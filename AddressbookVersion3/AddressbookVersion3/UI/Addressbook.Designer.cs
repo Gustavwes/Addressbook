@@ -47,27 +47,20 @@
             this.CityTextBox = new System.Windows.Forms.TextBox();
             this.ContactTypeComboBox = new System.Windows.Forms.ComboBox();
             this.ShowAddressListButton = new System.Windows.Forms.Button();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telephoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.contactBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AddressbookDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // AddressbookDataGridView
             // 
-            this.AddressbookDataGridView.AutoGenerateColumns = false;
             this.AddressbookDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AddressbookDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.telephoneDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn});
-            this.AddressbookDataGridView.DataSource = this.contactBindingSource1;
             this.AddressbookDataGridView.Location = new System.Drawing.Point(319, 184);
             this.AddressbookDataGridView.Name = "AddressbookDataGridView";
             this.AddressbookDataGridView.RowTemplate.Height = 24;
@@ -222,29 +215,13 @@
             this.ShowAddressListButton.UseVisualStyleBackColor = true;
             this.ShowAddressListButton.Click += new System.EventHandler(this.ShowAddressListButton_Click);
             // 
-            // idDataGridViewTextBoxColumn
+            // contactBindingSource2
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.contactBindingSource2.DataSource = typeof(AddressbookVersion3.View_Models.Contact);
             // 
-            // nameDataGridViewTextBoxColumn
+            // contactBindingSource3
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // telephoneDataGridViewTextBoxColumn
-            // 
-            this.telephoneDataGridViewTextBoxColumn.DataPropertyName = "Telephone";
-            this.telephoneDataGridViewTextBoxColumn.HeaderText = "Telephone";
-            this.telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.contactBindingSource3.DataSource = typeof(AddressbookVersion3.View_Models.Contact);
             // 
             // contactBindingSource1
             // 
@@ -281,6 +258,8 @@
             this.Name = "Addressbook";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.AddressbookDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -292,10 +271,6 @@
 
         private System.Windows.Forms.DataGridView AddressbookDataGridView;
         private System.Windows.Forms.BindingSource contactBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource contactBindingSource1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button CreateNewContactButton;
@@ -314,6 +289,8 @@
         private System.Windows.Forms.TextBox CityTextBox;
         private System.Windows.Forms.ComboBox ContactTypeComboBox;
         private System.Windows.Forms.Button ShowAddressListButton;
+        private System.Windows.Forms.BindingSource contactBindingSource3;
+        private System.Windows.Forms.BindingSource contactBindingSource2;
     }
 }
 

@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AddressbookVersion3.DataContext;
 using AddressbookVersion3.View_Models;
+using Contact = AddressbookVersion3.View_Models.Contact;
 
 namespace AddressbookVersion3.DAL
 {
@@ -14,17 +16,19 @@ namespace AddressbookVersion3.DAL
         {
             BindingList<Contact> contacts;
 
-
+            
             using (var dataContext = new DataContext.AdressbookDataContext())
             {
                 var contactQuery = from contact in dataContext.Contact
+                                   join contactType in dataContext.ContactType on contact.Id equals contactType.ContactId 
 
                     select new View_Models.Contact()
                     {
                         Id = contact.Id,
                         Name = contact.Name,
                         Email = contact.Email,
-                        Telephone = contact.Telephone
+                        Telephone = contact.Telephone,
+                        ContactTypeString = contactType.ContactType1 
                     };
                 contacts = new BindingList<Contact>(contactQuery.ToList());
             }

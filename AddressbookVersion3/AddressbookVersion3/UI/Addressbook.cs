@@ -42,9 +42,9 @@ namespace AddressbookVersion3
             sendAddress.StreetAddress = StreetAddressTextBox.Text;
             sendAddress.PostalCode = PostalCodeTextBox.Text;
             sendAddress.City = CityTextBox.Text;
+            var sendTypeContact = ContactTypeComboBox.SelectedItem.ToString();
 
             //var sendTypeContact = new View_Models.ContactTypeModel();
-            var sendTypeContact = ContactTypeComboBox.SelectedItem.ToString();
             //var maxContactsId = dataAccess.GetContacts().Max(x=>x.Id);
             //sendTypeContact.ContactId = maxContactsId;
 
