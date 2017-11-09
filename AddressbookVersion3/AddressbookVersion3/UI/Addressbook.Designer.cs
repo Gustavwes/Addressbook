@@ -51,6 +51,7 @@
             this.contactBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DeleteSelected = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AddressbookDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource3)).BeginInit();
@@ -66,6 +67,7 @@
             this.AddressbookDataGridView.RowTemplate.Height = 24;
             this.AddressbookDataGridView.Size = new System.Drawing.Size(734, 203);
             this.AddressbookDataGridView.TabIndex = 0;
+            this.AddressbookDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddressbookDataGridView_CellEndEdit);
             // 
             // menuStrip1
             // 
@@ -231,11 +233,22 @@
             // 
             this.contactBindingSource.DataSource = typeof(AddressbookVersion3.DataContext.Contact);
             // 
+            // DeleteSelected
+            // 
+            this.DeleteSelected.Location = new System.Drawing.Point(917, 87);
+            this.DeleteSelected.Name = "DeleteSelected";
+            this.DeleteSelected.Size = new System.Drawing.Size(75, 23);
+            this.DeleteSelected.TabIndex = 18;
+            this.DeleteSelected.Text = "Delete Selected";
+            this.DeleteSelected.UseVisualStyleBackColor = true;
+            this.DeleteSelected.Click += new System.EventHandler(this.DeleteSelected_Click);
+            // 
             // Addressbook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 449);
+            this.Controls.Add(this.DeleteSelected);
             this.Controls.Add(this.ShowAddressListButton);
             this.Controls.Add(this.ContactTypeComboBox);
             this.Controls.Add(this.CityTextBox);
@@ -291,6 +304,7 @@
         private System.Windows.Forms.Button ShowAddressListButton;
         private System.Windows.Forms.BindingSource contactBindingSource3;
         private System.Windows.Forms.BindingSource contactBindingSource2;
+        private System.Windows.Forms.Button DeleteSelected;
     }
 }
 

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AddressbookVersion3.DAL;
-using AddressbookVersion3.UI;
 
 namespace AddressbookVersion3
 {
@@ -27,8 +26,6 @@ namespace AddressbookVersion3
             var contacts = dataAccess.GetContacts();
             AddressbookDataGridView.DataSource = contacts;
         }
-
-    
 
         private void CreateNewContactButton_Click(object sender, EventArgs e)
         {
@@ -64,8 +61,48 @@ namespace AddressbookVersion3
 
         private void ShowAddressListButton_Click(object sender, EventArgs e)
         {
-            AddressView addressView = new AddressView();
-            addressView.Show();
+            //AddressView addressView = new AddressView();
+            //addressView.Show();public void GetAllAddresses()
+            
+               ShowAllAddresses();
+            
+        }
+
+        private void AddressbookDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            var newValue = AddressbookDataGridView[e.ColumnIndex, e.RowIndex].Value;
+            var columnName = AddressbookDataGridView.Columns[e.ColumnIndex].HeaderText;
+            var addressId = AddressbookDataGridView[0, e.RowIndex].Value;
+
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.UpdateAddress(Convert.ToInt32(addressId), newValue.ToString(), columnName);
+        }
+
+        private void DeleteSelected_Click(object sender, EventArgs e)
+        {
+            DataAccess dataAccess = new DataAccess();
+            //delete funktioner, behöver plocka ut row Id
+            if (AddressbookDataGridView.SelectedRows.Count > 0)
+            {
+                for (int i = 0; i < AddressbookDataGridView.Rows.Count; i++)
+                {
+                    if (AddressbookDataGridView.Rows[i].Selected)
+                    {
+                        var addressId = AddressbookDataGridView[0, i].Value;
+                        dataAccess.DeleteContact(Convert.ToInt32(addressId));
+                    }
+
+                }
+
+            }
+            ShowAllAddresses();
+        }
+
+        public void ShowAllAddresses()
+        {
+            DataAccess dataAccess = new DataAccess();
+            var addresses = dataAccess.GetAddress();
+            AddressbookDataGridView.DataSource = addresses;
         }
     }
 }

@@ -23,7 +23,6 @@ C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.csprojResolveAssemblyReference.cache
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.Properties.Resources.resources
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.Addressbook.resources
-C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.UI.AddressView.resources
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.csproj.GenerateResource.Cache
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.csproj.CoreCompileInputs.cache
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.exe
