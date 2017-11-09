@@ -112,7 +112,17 @@ namespace AddressbookVersion3.DAL
 
         public void DeleteContact(int addressId)
         {
-            
+            using (var dataContext= new AdressbookDataContext())
+            {
+                var deleteAddress = dataContext.Address.SingleOrDefault(x => x.Id == addressId);
+
+                if (deleteAddress != null)
+                {
+                    dataContext.Address.Remove(deleteAddress);
+                }
+                dataContext.SaveChanges();
+            }
+           
         }
     }
 }

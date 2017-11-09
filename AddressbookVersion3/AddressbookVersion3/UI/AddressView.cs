@@ -32,12 +32,28 @@ namespace AddressbookVersion3.UI
             var addressId = addressViewDataGrid[0, e.RowIndex].Value;
 
             DataAccess dataAccess = new DataAccess();
-            dataAccess.UpdateAddress(Convert.ToInt32(addressId),newValue.ToString(),columnName);
+            dataAccess.UpdateAddress(Convert.ToInt32(addressId), newValue.ToString(), columnName);
         }
 
         private void DeleteRowButton_Click(object sender, EventArgs e)
         {
+            DataAccess dataAccess = new DataAccess();
             //delete funktioner, behöver plocka ut row Id
+            if (addressViewDataGrid.SelectedRows.Count > 0)
+            {
+                for (int i = 0; i < addressViewDataGrid.Rows.Count; i++)
+                {
+                    if (addressViewDataGrid.Rows[i].Selected)
+                    {
+                        var addressId = addressViewDataGrid[0, i].Value;
+                        dataAccess.DeleteContact(Convert.ToInt32(addressId));
+                    }
+
+                }
+
+            }
+            GetAllAddresses();
+
         }
     }
 }
