@@ -108,10 +108,12 @@ namespace AddressbookVersion3
         private void SearchButton_Click(object sender, EventArgs e)
         {
             var nameSearch = NameTextBox.Text;
+            var postalCodeSearch = PostalCodeTextBox.Text;
+            var contactTypeSearch = ContactTypeComboBox.Text;
 
             var dataAccess = new DataAccess();
 
-            var searchResults = dataAccess.SearchContacts(nameSearch);
+            var searchResults = dataAccess.SearchContacts(nameSearch,postalCodeSearch, contactTypeSearch);
             AddressbookDataGridView.DataSource = searchResults;
         }
     }

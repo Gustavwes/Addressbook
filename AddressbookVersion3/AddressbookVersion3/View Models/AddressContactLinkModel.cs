@@ -10,9 +10,9 @@ namespace AddressbookVersion3.View_Models
     {
         public int Id { get; set; }
 
-        public int ContactId { get; set; }
+        public int? ContactId { get; set; }
 
-        public int AddressId { get; set; }
+        public int? AddressId { get; set; }
 
         public  AddressModel Address { get; set; }
 

@@ -36,6 +36,22 @@ namespace AddressbookVersion3.DAL
             return contacts;
         }
 
+        public BindingList<View_Models.AddressContactLinkModel> GetAddressContactLinkModels()
+        {
+            BindingList<AddressContactLinkModel> links;
+            using (var dataContext = new AdressbookDataContext())
+            {
+                var linkQuery = from AClink in dataContext.AddressContactLink
+                                select new AddressContactLinkModel()
+                                {
+                                    AddressId = AClink.AddressId,
+                                    ContactId = AClink.ContactId
+                                };
+                links = new BindingList<AddressContactLinkModel>(linkQuery.ToList());
+            }
+            return links;
+        }
+
         public BindingList<View_Models.AddressModel> GetAddress()
         {
             BindingList<AddressModel> addresses;
@@ -78,16 +94,31 @@ namespace AddressbookVersion3.DAL
             }
         }
 
-        public BindingList<Contact> SearchContacts(string name)
+        public BindingList<AddressModel> SearchContacts(string name, string postalCode, string contactType)
         {
-            BindingList<Contact> returnList;
-         
-            var testlist = GetContacts().Select(contact => contact).Where(y=>y.Name==name).ToList();
-          
-            returnList = new BindingList<Contact>(testlist);
+            BindingList<AddressModel> returnList;
+            
+            using (var dataContext = new AdressbookDataContext())
+            {
+                var address = from contact in dataContext.AddressContactLink
+                              join link in dataContext.ContactType on contact.ContactId equals link.ContactId
+                              where contact.Contact.Name.Contains(name) &
+                              contact.Address.PostalCode.Contains(postalCode) &
+                              link.ContactType1.Contains(contactType)
+
+                              select new AddressModel()
+                              {
+                                  Id = contact.Address.Id,
+                                  StreetAddress = contact.Address.StreetAddress,
+                                  PostalCode = contact.Address.PostalCode,
+                                  City = contact.Address.City
+                              };
+                List<AddressModel> addressList = address.ToList();
+                returnList = new BindingList<AddressModel>(addressList);
+            }
             return returnList;
 
-            
+
         }
 
         public void CreateNewContact(Contact contact, AddressModel address, string contactType)
