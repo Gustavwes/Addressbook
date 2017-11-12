@@ -47,11 +47,12 @@
             this.CityTextBox = new System.Windows.Forms.TextBox();
             this.ContactTypeComboBox = new System.Windows.Forms.ComboBox();
             this.ShowAddressListButton = new System.Windows.Forms.Button();
+            this.DeleteSelected = new System.Windows.Forms.Button();
             this.contactBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DeleteSelected = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AddressbookDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource3)).BeginInit();
@@ -217,6 +218,16 @@
             this.ShowAddressListButton.UseVisualStyleBackColor = true;
             this.ShowAddressListButton.Click += new System.EventHandler(this.ShowAddressListButton_Click);
             // 
+            // DeleteSelected
+            // 
+            this.DeleteSelected.Location = new System.Drawing.Point(917, 87);
+            this.DeleteSelected.Name = "DeleteSelected";
+            this.DeleteSelected.Size = new System.Drawing.Size(75, 23);
+            this.DeleteSelected.TabIndex = 18;
+            this.DeleteSelected.Text = "Delete Selected";
+            this.DeleteSelected.UseVisualStyleBackColor = true;
+            this.DeleteSelected.Click += new System.EventHandler(this.DeleteSelected_Click);
+            // 
             // contactBindingSource2
             // 
             this.contactBindingSource2.DataSource = typeof(AddressbookVersion3.View_Models.Contact);
@@ -233,21 +244,22 @@
             // 
             this.contactBindingSource.DataSource = typeof(AddressbookVersion3.DataContext.Contact);
             // 
-            // DeleteSelected
+            // SearchButton
             // 
-            this.DeleteSelected.Location = new System.Drawing.Point(917, 87);
-            this.DeleteSelected.Name = "DeleteSelected";
-            this.DeleteSelected.Size = new System.Drawing.Size(75, 23);
-            this.DeleteSelected.TabIndex = 18;
-            this.DeleteSelected.Text = "Delete Selected";
-            this.DeleteSelected.UseVisualStyleBackColor = true;
-            this.DeleteSelected.Click += new System.EventHandler(this.DeleteSelected_Click);
+            this.SearchButton.Location = new System.Drawing.Point(334, 87);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(134, 24);
+            this.SearchButton.TabIndex = 19;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // Addressbook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 449);
+            this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.DeleteSelected);
             this.Controls.Add(this.ShowAddressListButton);
             this.Controls.Add(this.ContactTypeComboBox);
@@ -305,6 +317,7 @@
         private System.Windows.Forms.BindingSource contactBindingSource3;
         private System.Windows.Forms.BindingSource contactBindingSource2;
         private System.Windows.Forms.Button DeleteSelected;
+        private System.Windows.Forms.Button SearchButton;
     }
 }
 

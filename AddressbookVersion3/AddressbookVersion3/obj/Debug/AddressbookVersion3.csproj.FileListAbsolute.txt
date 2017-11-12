@@ -27,3 +27,17 @@ C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.csproj.CoreCompileInputs.cache
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.exe
 C:\Users\kratl\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.pdb
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\bin\Debug\AddressbookVersion3.exe.config
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\bin\Debug\AddressbookVersion3.exe
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\bin\Debug\AddressbookVersion3.pdb
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\bin\Debug\EntityFramework.dll
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\bin\Debug\EntityFramework.xml
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.csprojResolveAssemblyReference.cache
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.Properties.Resources.resources
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.Addressbook.resources
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.csproj.GenerateResource.Cache
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.csproj.CoreCompileInputs.cache
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.exe
+C:\Users\Gustav\Source\Repos\Addressbook\AddressbookVersion3\AddressbookVersion3\obj\Debug\AddressbookVersion3.pdb

@@ -104,5 +104,15 @@ namespace AddressbookVersion3
             var addresses = dataAccess.GetAddress();
             AddressbookDataGridView.DataSource = addresses;
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            var nameSearch = NameTextBox.Text;
+
+            var dataAccess = new DataAccess();
+
+            var searchResults = dataAccess.SearchContacts(nameSearch);
+            AddressbookDataGridView.DataSource = searchResults;
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using AddressbookVersion3.DataContext;
@@ -16,20 +17,20 @@ namespace AddressbookVersion3.DAL
         {
             BindingList<Contact> contacts;
 
-            
+
             using (var dataContext = new DataContext.AdressbookDataContext())
             {
                 var contactQuery = from contact in dataContext.Contact
-                                   join contactType in dataContext.ContactType on contact.Id equals contactType.ContactId 
+                                   join contactType in dataContext.ContactType on contact.Id equals contactType.ContactId
 
-                    select new View_Models.Contact()
-                    {
-                        Id = contact.Id,
-                        Name = contact.Name,
-                        Email = contact.Email,
-                        Telephone = contact.Telephone,
-                        ContactTypeString = contactType.ContactType1 
-                    };
+                                   select new View_Models.Contact()
+                                   {
+                                       Id = contact.Id,
+                                       Name = contact.Name,
+                                       Email = contact.Email,
+                                       Telephone = contact.Telephone,
+                                       ContactTypeString = contactType.ContactType1
+                                   };
                 contacts = new BindingList<Contact>(contactQuery.ToList());
             }
             return contacts;
@@ -41,15 +42,15 @@ namespace AddressbookVersion3.DAL
             using (var dataContext = new DataContext.AdressbookDataContext())
             {
                 var addressQuery = from address in dataContext.Address
-                    select new View_Models.AddressModel()
-                    {
-                        Id = address.Id,
-                        StreetAddress = address.StreetAddress,
-                        PostalCode = address.PostalCode,
-                        City = address.City
-                    };
+                                   select new View_Models.AddressModel()
+                                   {
+                                       Id = address.Id,
+                                       StreetAddress = address.StreetAddress,
+                                       PostalCode = address.PostalCode,
+                                       City = address.City
+                                   };
                 addresses = new BindingList<AddressModel>(addressQuery.ToList());
-                }
+            }
             return addresses;
         }
 
@@ -77,7 +78,29 @@ namespace AddressbookVersion3.DAL
             }
         }
 
-        
+        public BindingList<Contact> SearchContacts(string name)
+        {
+            BindingList<Contact> returnList;
+            using (var dataContext = new AdressbookDataContext())
+            {
+                var contacts = from contact in dataContext.Contact
+                               where contact.Name.Contains(name)
+                               join contactType in dataContext.ContactType on contact.Id equals contactType.ContactId
+
+                               select new View_Models.Contact
+                               {
+                                   Id = contact.Id,
+                                   Name = contact.Name,
+                                   Email = contact.Email,
+                                   Telephone = contact.Telephone,
+                                   ContactTypeString = contactType.ContactType1
+
+                               };
+                List<Contact> contactResult = contacts.ToList();
+                returnList = new BindingList<Contact>(contactResult);
+            }
+            return returnList;
+        }
 
         public void CreateNewContact(Contact contact, AddressModel address, string contactType)
         {
@@ -112,7 +135,7 @@ namespace AddressbookVersion3.DAL
 
         public void DeleteContact(int addressId)
         {
-            using (var dataContext= new AdressbookDataContext())
+            using (var dataContext = new AdressbookDataContext())
             {
                 var deleteAddress = dataContext.Address.SingleOrDefault(x => x.Id == addressId);
 
@@ -122,7 +145,7 @@ namespace AddressbookVersion3.DAL
                 }
                 dataContext.SaveChanges();
             }
-           
+
         }
     }
 }
