@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using AddressbookVersion3.DAL;
 
 namespace AddressbookVersion3
@@ -41,13 +42,7 @@ namespace AddressbookVersion3
             sendAddress.City = CityTextBox.Text;
             var sendTypeContact = ContactTypeComboBox.SelectedItem.ToString();
 
-            //var sendTypeContact = new View_Models.ContactTypeModel();
-            //var maxContactsId = dataAccess.GetContacts().Max(x=>x.Id);
-            //sendTypeContact.ContactId = maxContactsId;
-
-            //var sendACLink = new View_Models.AddressContactLinkModel();
-            //var maxAddressId = dataAccess.g
-            //sendACLink.AddressId = 
+            
 
             dataAccess.CreateNewContact(sendContact,sendAddress,sendTypeContact);
             GetAllContacts();
@@ -115,6 +110,28 @@ namespace AddressbookVersion3
 
             var searchResults = dataAccess.SearchContacts(nameSearch,postalCodeSearch, contactTypeSearch);
             AddressbookDataGridView.DataSource = searchResults;
+        }
+
+        private void AddressbookDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataAccess dataAccess = new DataAccess();
+            //var addressId = 0;
+            ////delete funktioner, behöver plocka ut row Id
+            //if (AddressbookDataGridView.SelectedRows.Count > 0)
+            //{
+            //    for (int i = 0; i < AddressbookDataGridView.Rows.Count; i++)
+            //    {
+            //        if (AddressbookDataGridView.Rows[i].Selected)
+            //        {
+            //            addressId = Convert.ToInt32(AddressbookDataGridView[0, i].Value);
+
+            //        }
+
+            //    }
+
+            //}
+            var addressId = AddressbookDataGridView[0, e.RowIndex].Value;
+            AddressbookDataGridView.DataSource = dataAccess.GetContacts(Convert.ToInt32(addressId)); ;
         }
     }
 }
