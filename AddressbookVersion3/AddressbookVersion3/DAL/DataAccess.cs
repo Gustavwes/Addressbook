@@ -81,25 +81,13 @@ namespace AddressbookVersion3.DAL
         public BindingList<Contact> SearchContacts(string name)
         {
             BindingList<Contact> returnList;
-            using (var dataContext = new AdressbookDataContext())
-            {
-                var contacts = from contact in dataContext.Contact
-                               where contact.Name.Contains(name)
-                               join contactType in dataContext.ContactType on contact.Id equals contactType.ContactId
-
-                               select new View_Models.Contact
-                               {
-                                   Id = contact.Id,
-                                   Name = contact.Name,
-                                   Email = contact.Email,
-                                   Telephone = contact.Telephone,
-                                   ContactTypeString = contactType.ContactType1
-
-                               };
-                List<Contact> contactResult = contacts.ToList();
-                returnList = new BindingList<Contact>(contactResult);
-            }
+         
+            var testlist = GetContacts().Select(contact => contact).Where(y=>y.Name==name).ToList();
+          
+            returnList = new BindingList<Contact>(testlist);
             return returnList;
+
+            
         }
 
         public void CreateNewContact(Contact contact, AddressModel address, string contactType)
