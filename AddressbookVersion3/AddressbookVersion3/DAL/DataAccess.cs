@@ -29,7 +29,7 @@ namespace AddressbookVersion3.DAL
                                        Name = contact.Name,
                                        Email = contact.Email,
                                        Telephone = contact.Telephone,
-                                       ContactTypeString = contactType.ContactType1
+                                       Contact_Type = contactType.ContactType1
                                    };
                 contacts = new BindingList<Contact>(contactQuery.ToList());
             }
@@ -54,7 +54,7 @@ namespace AddressbookVersion3.DAL
                                   Name = link.Contact.Name,
                                   Email = link.Contact.Email,
                                   Telephone = link.Contact.Telephone,
-                                   ContactTypeString = typeOfContact.ContactType1
+                                   Contact_Type = typeOfContact.ContactType1
                               };
                 contacts = new BindingList<Contact>(result.ToList());
             }
@@ -119,7 +119,7 @@ namespace AddressbookVersion3.DAL
             }
         }
 
-        public BindingList<AddressModel> SearchContacts(string name, string postalCode, string contactType)
+        public BindingList<AddressModel> SearchContacts(string name, string postalCode, string contactType, string city)
         {
             BindingList<AddressModel> returnList;
 
@@ -129,7 +129,8 @@ namespace AddressbookVersion3.DAL
                               join link in dataContext.ContactType on contact.ContactId equals link.ContactId
                               where contact.Contact.Name.Contains(name) &
                               contact.Address.PostalCode.Contains(postalCode) &
-                              link.ContactType1.Contains(contactType)
+                              link.ContactType1.Contains(contactType) &
+                              contact.Address.City.Contains(city)
 
                               select new AddressModel()
                               {

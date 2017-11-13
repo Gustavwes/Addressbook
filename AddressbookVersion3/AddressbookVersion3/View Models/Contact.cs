@@ -13,6 +13,6 @@ namespace AddressbookVersion3.View_Models
         public string Name { get; set; }
         public string Telephone { get; set; }
         public string Email { get; set; }
-        public string ContactTypeString { get; set; }
+        public string Contact_Type { get; set; }
     }
 }

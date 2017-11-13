@@ -105,10 +105,11 @@ namespace AddressbookVersion3
             var nameSearch = NameTextBox.Text;
             var postalCodeSearch = PostalCodeTextBox.Text;
             var contactTypeSearch = ContactTypeComboBox.Text;
+            var citySearch = CityTextBox.Text;
 
             var dataAccess = new DataAccess();
 
-            var searchResults = dataAccess.SearchContacts(nameSearch,postalCodeSearch, contactTypeSearch);
+            var searchResults = dataAccess.SearchContacts(nameSearch,postalCodeSearch, contactTypeSearch, citySearch);
             AddressbookDataGridView.DataSource = searchResults;
         }
 
