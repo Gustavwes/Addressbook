@@ -48,11 +48,11 @@
             this.ContactTypeComboBox = new System.Windows.Forms.ComboBox();
             this.ShowAddressListButton = new System.Windows.Forms.Button();
             this.DeleteSelected = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.contactBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AddressbookDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource3)).BeginInit();
@@ -68,6 +68,7 @@
             this.AddressbookDataGridView.RowTemplate.Height = 24;
             this.AddressbookDataGridView.Size = new System.Drawing.Size(734, 203);
             this.AddressbookDataGridView.TabIndex = 0;
+            this.AddressbookDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddressbookDataGridView_CellDoubleClick);
             this.AddressbookDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddressbookDataGridView_CellEndEdit);
             // 
             // menuStrip1
@@ -95,7 +96,6 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(156, 22);
             this.NameTextBox.TabIndex = 3;
-            this.NameTextBox.Text = "Name";
             // 
             // NameLabel
             // 
@@ -166,7 +166,6 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(156, 22);
             this.EmailTextBox.TabIndex = 11;
-            this.EmailTextBox.Text = "Email";
             // 
             // TelephoneTextBox
             // 
@@ -174,7 +173,6 @@
             this.TelephoneTextBox.Name = "TelephoneTextBox";
             this.TelephoneTextBox.Size = new System.Drawing.Size(156, 22);
             this.TelephoneTextBox.TabIndex = 12;
-            this.TelephoneTextBox.Text = "Telephone Number";
             // 
             // StreetAddressTextBox
             // 
@@ -182,7 +180,6 @@
             this.StreetAddressTextBox.Name = "StreetAddressTextBox";
             this.StreetAddressTextBox.Size = new System.Drawing.Size(156, 22);
             this.StreetAddressTextBox.TabIndex = 13;
-            this.StreetAddressTextBox.Text = "Street Address";
             // 
             // PostalCodeTextBox
             // 
@@ -190,7 +187,6 @@
             this.PostalCodeTextBox.Name = "PostalCodeTextBox";
             this.PostalCodeTextBox.Size = new System.Drawing.Size(156, 22);
             this.PostalCodeTextBox.TabIndex = 14;
-            this.PostalCodeTextBox.Text = "Postal Code";
             // 
             // CityTextBox
             // 
@@ -198,7 +194,6 @@
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(156, 22);
             this.CityTextBox.TabIndex = 15;
-            this.CityTextBox.Text = "City";
             // 
             // ContactTypeComboBox
             // 
@@ -228,6 +223,16 @@
             this.DeleteSelected.UseVisualStyleBackColor = true;
             this.DeleteSelected.Click += new System.EventHandler(this.DeleteSelected_Click);
             // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(334, 87);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(134, 24);
+            this.SearchButton.TabIndex = 19;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
             // contactBindingSource2
             // 
             this.contactBindingSource2.DataSource = typeof(AddressbookVersion3.View_Models.Contact);
@@ -243,16 +248,6 @@
             // contactBindingSource
             // 
             this.contactBindingSource.DataSource = typeof(AddressbookVersion3.DataContext.Contact);
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.Location = new System.Drawing.Point(334, 87);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(134, 24);
-            this.SearchButton.TabIndex = 19;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // Addressbook
             // 

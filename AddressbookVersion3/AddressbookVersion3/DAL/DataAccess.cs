@@ -36,6 +36,31 @@ namespace AddressbookVersion3.DAL
             return contacts;
         }
 
+        public BindingList<View_Models.Contact> GetContacts(int addressId)
+        {
+            BindingList<Contact> contacts;
+
+
+            using (var dataContext = new DataContext.AdressbookDataContext())
+            {
+                var result = from link in dataContext.AddressContactLink
+                              join address in dataContext.Address on link.AddressId equals addressId
+                              join typeOfContact in dataContext.ContactType on link.ContactId equals typeOfContact.ContactId 
+                              where address.Id == addressId
+
+                              select new View_Models.Contact()
+                              {
+                                  Id = link.Id,
+                                  Name = link.Contact.Name,
+                                  Email = link.Contact.Email,
+                                  Telephone = link.Contact.Telephone,
+                                   ContactTypeString = typeOfContact.ContactType1
+                              };
+                contacts = new BindingList<Contact>(result.ToList());
+            }
+            return contacts;
+        }
+
         public BindingList<View_Models.AddressContactLinkModel> GetAddressContactLinkModels()
         {
             BindingList<AddressContactLinkModel> links;
@@ -97,7 +122,7 @@ namespace AddressbookVersion3.DAL
         public BindingList<AddressModel> SearchContacts(string name, string postalCode, string contactType)
         {
             BindingList<AddressModel> returnList;
-            
+
             using (var dataContext = new AdressbookDataContext())
             {
                 var address = from contact in dataContext.AddressContactLink
